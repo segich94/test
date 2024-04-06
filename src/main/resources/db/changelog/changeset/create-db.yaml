@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-db
+      author: admin
+      changes:
+        - createTable:
+            tableName: wallet
+            columns:
+              - column:
+                  name: wallet_uuid
+                  type: uuid
+                  autoIncrement: false
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: amount
+                  type: double precision
+                  constraints:
+                    nullable: false

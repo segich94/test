@@ -1,16 +1,12 @@
 package com.example.test.controller;
 
-import com.example.test.persistiens.Wallet;
 import com.example.test.persistiens.dto.InboxDto;
 import com.example.test.service.WalletService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("${application.endpoint.root}")
@@ -18,16 +14,15 @@ import java.util.List;
 public class WalletController {
     private final WalletService walletService;
 
-    public ResponseEntity<?> changeWallet(@RequestBody InboxDto inboxDto){
-        try {
+    @PostMapping("${application.endpoint.wallet}")
+    public ResponseEntity<?> changeWallet(@RequestBody InboxDto inboxDto) {
         walletService.changeWallet(inboxDto);
-        }
-        catch ()
+        return ResponseEntity.ok().body("OK");
     }
 
-    @GetMapping("${application.endpoint.wallet}")
-    public ResponseEntity<List<Wallet>> getWallets() {
-        return ResponseEntity.ok().body(walletService.getAllWallets());
+    @GetMapping("${application.endpoint.wallets}/{id}")
+    public ResponseEntity<?> getWallet(@PathVariable UUID id) {
+        return ResponseEntity.ok().body(walletService.getAmount(id));
     }
 
 }

@@ -1,9 +1,11 @@
 spring:
   datasource:
     driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/postgres
+    url: ${SPRING_DATASOURCE}
     username: root
     password: root
+  liquibase:
+    enabled: true
 
 server:
   port: 8086
@@ -11,3 +13,4 @@ application:
   endpoint:
     root: /api/v1
     wallet: /wallet
+    wallets: /wallets

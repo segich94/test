@@ -1,6 +1,5 @@
 package com.example.test.persistiens;
 
-import com.example.test.utils.OperationType;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.experimental.Accessors;

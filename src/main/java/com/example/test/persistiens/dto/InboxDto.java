@@ -1,7 +1,7 @@
 package com.example.test.persistiens.dto;
 
 import com.example.test.utils.OperationType;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -10,10 +10,10 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 public class InboxDto {
-    @NotNull
+    @NotBlank
     private UUID walletId;
-    @NotNull
+    @NotBlank
     private OperationType operationType;
-    @NotNull
+    @NotBlank
     private Double amount;
 }

@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      id: test-db-data
+      author: admin
+      changes:
+        - insert:
+            tableName: wallet
+            columns:
+              - column:
+                  name: wallet_uuid
+                  value: '123e4567-e89b-42d3-a456-556642440000'
+              - column:
+                  name: amount
+                  value: '7052.0'
